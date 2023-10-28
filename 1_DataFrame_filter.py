@@ -197,14 +197,17 @@ st.dataframe(df)
 
 with st.expander('Code'):
     st.code("""
-    df = pd.read_csv(
-        'https://media.githubusercontent.com/media/datablist/sample-csv-files/main/files/people/people-100.csv',
-        index_col=0,
-        parse_dates=['Date of birth'],
-        date_format='%Y-%m-%d')
-    df['Age'] = ((pd.Timestamp.today() - df['Date of birth']).dt.days / 365).astype(int)
-    df['Sex'] = pd.Categorical(df['Sex'])
-    df['Likes tomatoes'] = np.random.randint(2, size=df.shape[0]).astype(bool)
+    @st.cache_data
+    def load_data():
+        df = pd.read_csv(
+            'https://media.githubusercontent.com/media/datablist/sample-csv-files/main/files/people/people-100.csv',
+            index_col=0,
+            parse_dates=['Date of birth'],
+            date_format='%Y-%m-%d')
+        df['Age'] = ((pd.Timestamp.today() - df['Date of birth']).dt.days / 365).astype(int)
+        df['Sex'] = pd.Categorical(df['Sex'])
+        df['Likes tomatoes'] = np.random.randint(2, size=df.shape[0]).astype(bool)
+        return df
     
     st.subheader('Initial DataFrame')
     st.dataframe(df)
