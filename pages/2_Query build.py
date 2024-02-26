@@ -5,8 +5,8 @@ from config import config
 
 
 st.set_page_config(
-  page_title='Streamlit-condition-tree demo',
-  page_icon=':beer:'
+    page_title='Streamlit-condition-tree demo',
+    page_icon=':bookmark_tabs:'
 )
 
 tree = {

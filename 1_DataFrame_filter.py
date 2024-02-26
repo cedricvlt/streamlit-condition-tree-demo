@@ -5,14 +5,14 @@ from streamlit_condition_tree import condition_tree, config_from_dataframe
 
 st.set_page_config(
     page_title='Streamlit-condition-tree demo',
-    page_icon=':beer:'
+    page_icon=':bookmark_tabs:'
 )
 
 
 @st.cache_data
 def load_data():
     df = pd.read_csv(
-        'https://media.githubusercontent.com/media/datablist/sample-csv-files/main/files/people/people-100.csv',
+        'https://drive.google.com/uc?id=1phaHg9objxK2MwaZmSUZAKQ8kVqlgng4&export=download',
         index_col=0,
         parse_dates=['Date of birth'],
         date_format='%Y-%m-%d')
@@ -200,7 +200,7 @@ with st.expander('Code'):
     @st.cache_data
     def load_data():
         df = pd.read_csv(
-            'https://media.githubusercontent.com/media/datablist/sample-csv-files/main/files/people/people-100.csv',
+            'https://drive.google.com/uc?id=1phaHg9objxK2MwaZmSUZAKQ8kVqlgng4&export=download',
             index_col=0,
             parse_dates=['Date of birth'],
             date_format='%Y-%m-%d')
