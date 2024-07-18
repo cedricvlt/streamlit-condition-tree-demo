@@ -53,7 +53,7 @@ tree = {
                         ],
                         "valueSrc": [
                             "value",
-                            'null'
+                            "value"
                         ],
                         "valueType": [
                             "number",
@@ -186,7 +186,7 @@ tree = {
 st.subheader('Condition tree')
 query_string = condition_tree(
     config,
-    tree=tree
+    tree=tree,
 )
 st.code(query_string)
 st.markdown('')
@@ -194,6 +194,7 @@ st.markdown('')
 st.subheader('Filtered DataFrame')
 df = df.query(query_string)
 st.dataframe(df)
+
 
 with st.expander('Code'):
     st.code("""
